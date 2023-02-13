@@ -1,0 +1,20 @@
+{
+    "funcionarios" : [
+        {"matricula": 1, "sexo": 1, "idade": 23, "salario": 3800, "cargo": 2, "num_filhos": 2, "estado_civil": 1},
+        {"matricula": 2, "sexo": 2, "idade": 41, "salario": 16000, "cargo": 4, "num_filhos": 3, "estado_civil": 2},
+        {"matricula": 3, "sexo": 2, "idade": 35, "salario": 12000, "cargo": 3, "num_filhos": 1, "estado_civil": 2},
+        {"matricula": 4, "sexo": 1, "idade": 29, "salario": 4350, "cargo": 2, "num_filhos": 0, "estado_civil": 3},
+        {"matricula": 5, "sexo": 1, "idade": 32, "salario": 8500, "cargo": 5, "num_filhos": 0, "estado_civil": 3},
+        {"matricula": 6, "sexo": 2, "idade": 35, "salario": 9000, "cargo": 5, "num_filhos": 2, "estado_civil": 2},
+        {"matricula": 8, "sexo": 2, "idade": 28, "salario": 2100, "cargo": 1, "num_filhos": 1, "estado_civil": 1},
+        {"matricula": 9, "sexo": 1, "idade": 28, "salario": 5000, "cargo": 5, "num_filhos": 0, "estado_civil": 1},
+        {"matricula": 10, "sexo": 2, "idade": 20, "salario": 1800, "cargo": 1, "num_filhos": 3, "estado_civil": 1},
+        {"matricula": 11, "sexo": 1, "idade": 44, "salario": 11000, "cargo": 3, "num_filhos": 2, "estado_civil": 3},
+        {"matricula": 14, "sexo": 1, "idade": 27, "salario": 6500, "cargo": 5, "num_filhos": 1, "estado_civil": 1},
+        {"matricula": 15, "sexo": 1, "idade": 25, "salario": 1600, "cargo": 1, "num_filhos": 0, "estado_civil": 3},
+        {"matricula": 17, "sexo": 1, "idade": 53, "salario": 22000, "cargo": 6, "num_filhos": 4, "estado_civil": 2},
+        {"matricula": 18, "sexo": 2, "idade": 27, "salario": 1600, "cargo": 1, "num_filhos": 0, "estado_civil": 1},
+        {"matricula": 19, "sexo": 1, "idade": 26, "salario": 5000, "cargo": 5, "num_filhos": 4, "estado_civil": 2},
+        {"matricula": 20, "sexo": 2, "idade": 31, "salario": 3500, "cargo": 2, "num_filhos": 1, "estado_civil": 1}
+    ]
+}
