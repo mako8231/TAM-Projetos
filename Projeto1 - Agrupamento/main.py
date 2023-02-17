@@ -1,9 +1,8 @@
-import plotly.express as px 
-import numpy as np 
-import utils 
+import carregar_dados as loader 
+import utils as ut
+import kmeans as k 
 
-dados = utils.criarDadosRuspini("ruspini.m", "rotulosRuspini.m")
-dados_normais = utils.normalizarDados(dados)
-
-fig = px.scatter(dados_normais, x="x", y="y", color="rotulo")
-fig.show()
+dados = loader.carregar_base_dados("ruspini.m")
+dados_normais = ut.normalizar(dados)
+k.kmeans(dados_normais, 4)
+print(dados_normais)
