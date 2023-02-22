@@ -17,6 +17,15 @@ def kmeans(base_de_dados, qtd_classes):
         matriz_pertinecia[i][indice_grupo] = 1
             #print("j=", j, np.floor(d))
     
+     # atualizar a posição dos protótipos
+    for j in range(len(protipos)):
+        objetos_grupo = []
+        for i in range(len(base_de_dados)):
+            if matriz_pertinecia[i][j] == 1:
+                objetos_grupo.append(base_de_dados[i])
+        protipos[j] = np.mean(objetos_grupo, axis=0)
+    
+    
     print(matriz_pertinecia)
 
 def dist_euclidiana(prototipo, objeto):
