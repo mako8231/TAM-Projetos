@@ -1,7 +1,7 @@
 import numpy as np
 
 # Carregar o arquivo de rótulos
-rotulos = np.loadtxt('rotulos-ruspini.m')
+rotulos = np.loadtxt('dataset/statlog_rotulos.txt')
 
 # Calcular a matriz de contingência a partir da matriz de pertinências e dos rótulos
 def matriz_contingencia(matriz_pertinencia, rotulos):
@@ -20,8 +20,8 @@ def pureza(matriz_contingencia):
     return np.sum(maximos) / total
 
 # Exemplo de uso
-matriz_pertinencia = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1], [0, 0, 1], [1, 0, 0], [0, 1, 0]])
-C = matriz_contingencia(matriz_pertinencia, rotulos)
-p = pureza(C)
-print(C)
-print(p)
+#matriz_pertinencia = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1], [0, 0, 1], [1, 0, 0], [0, 1, 0]])
+#C = matriz_contingencia(matriz_pertinencia, rotulos)
+#p = pureza(C)
+#print(C)
+#print(p)
