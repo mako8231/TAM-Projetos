@@ -1,5 +1,5 @@
 import numpy as np
-import plotly.express as px 
+import plotly.graph_objects as go
 from scipy import stats
 
 def kNN(k:int, obj_entrada, objetos, rotulos):
@@ -96,6 +96,8 @@ def matriz_confusao(resultados):
     for i in range(len(resultados)):
         for j in range(len(resultados[i])):
             matriz[i][resultados[i][j]] += 1
+    matriz[:,[1,0]] = matriz[:,[0,1]]
+    matriz[[1,0],:] = matriz[[0,1],:]
     return matriz
     pass
 
@@ -120,20 +122,15 @@ def plot_roc(matrizes):
         tpr.append(TPR(matrizes[i]))
         fpr.append(FPR(matrizes[i]))
 
-    print(tpr, fpr)
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=fpr, y=tpr, mode='markers', name='objetos'))
+    fig.add_trace(go.Scatter(x=[0,1], y=[0,1], mode='lines'))
+    fig.add_trace(go.Scatter(x=fpr, y=tpr, line_shape='spline', name="Curva ROC"))
+    fig.update_layout(title="Espaço ROC", xaxis_title="Falso Positivo", yaxis_title='Verdadeiro Positivo', grid=dict(
+        domain=dict(
+            x=[0,1], y=[0,1]
+        )
+    ))
 
-    fig = px.area(
-        x=fpr, y=tpr,
-        title="Curva ROC",
-        labels=dict(x='Falso positivo', y='Verdadeiro positivo'),
-        width=700, height=800,
-    )
 
-    fig.add_shape(
-        type="line", line=dict(dash='dash'),
-        x0=0, x1=1, y0=0, y1=1
-    )
-
-    fig.update_yaxes(scaleanchor="x", scaleratio=1)
-    fig.update_xaxes(constrain='domain')
     fig.show()
