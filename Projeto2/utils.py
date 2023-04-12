@@ -1,4 +1,5 @@
 import numpy as np
+import plotly.express as px 
 from scipy import stats
 
 def kNN(k:int, obj_entrada, objetos, rotulos):
@@ -98,4 +99,41 @@ def matriz_confusao(resultados):
     return matriz
     pass
 
-   
+#so funciona com modelos de classes binarias
+def TPR(matriz_contingencia):
+    return (matriz_contingencia[0][0]/(matriz_contingencia[0][0] + matriz_contingencia[0][1]))
+    pass
+
+def FPR(matriz_contingencia):
+    return (matriz_contingencia[1][0]/(matriz_contingencia[1][0] + matriz_contingencia[1][1]))
+    pass
+
+def ACC(matriz_contingencia):
+    return (matriz_contingencia[0][0] + matriz_contingencia[1][1])/(matriz_contingencia[0][0] + matriz_contingencia[1][0] + matriz_contingencia[1][1] + matriz_contingencia[0][1])
+    pass
+
+def plot_roc(matrizes):
+    tpr = []
+    fpr = []
+
+    for i in range(len(matrizes)):
+        tpr.append(TPR(matrizes[i]))
+        fpr.append(FPR(matrizes[i]))
+
+    print(tpr, fpr)
+
+    fig = px.area(
+        x=fpr, y=tpr,
+        title="Curva ROC",
+        labels=dict(x='Falso positivo', y='Verdadeiro positivo'),
+        width=700, height=800,
+    )
+
+    fig.add_shape(
+        type="line", line=dict(dash='dash'),
+        x0=0, x1=1, y0=0, y1=1
+    )
+
+    fig.update_yaxes(scaleanchor="x", scaleratio=1)
+    fig.update_xaxes(constrain='domain')
+    fig.show()
